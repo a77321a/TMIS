@@ -7,7 +7,6 @@
   export default {
     name: 'landing-page',
     mounted(){
-      console.log(1)
     },
     methods: {
       

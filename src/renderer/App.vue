@@ -1,5 +1,6 @@
 <template>
-  <div id="app" style="-webkit-app-region: drag">
+  <div id="app" >
+    <div class="header" style="-webkit-app-region: drag"></div>
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -34,6 +35,13 @@
     background: url('./common/images/indexbgc.jpg') no-repeat;
     background-size: cover;
     overflow: hidden;
+  }
+  .header{
+    position: fixed;
+    height: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
     /* 设置滚动条的样式 */
   ::-webkit-scrollbar {
