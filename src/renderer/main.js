@@ -6,8 +6,10 @@ import router from './router'
 import store from './store'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
+import WebStorage from './common/js/storage'
 Vue.use(iView);
 
+window.LocalStorage = new WebStorage();
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false

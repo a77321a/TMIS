@@ -1,6 +1,6 @@
 <template>
     <div id="app" style="-webkit-app-region: no-drag">
-        <div class="window-btn">
+        <div v-show="$route.name==='login'" class="window-btn">
             <span @mouseleave="curIndex = -1" @mouseenter="curIndex = 0">
                 <Icon @click="handleClick('min')" :class="{'handleHover':curIndex==0}" type="logo-windows" size="24"/>
             </span>
