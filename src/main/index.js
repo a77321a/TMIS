@@ -34,6 +34,7 @@ function createWindow () {
     mainWindow.show()
   })
 }
+const ipcMain = require('electron').ipcMain;
 
 app.on('ready', createWindow)
 
@@ -47,4 +48,18 @@ app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
   }
+})
+
+ipcMain.on('window-min',()=>{
+  mainWindow.minimize()
+})
+ipcMain.on('window-max',function(){
+  if(mainWindow.isMaximized()){
+      mainWindow.restore();
+  }else{
+      mainWindow.maximize();
+  }
+})
+ipcMain.on('window-close',function(){
+  mainWindow.close();
 })
