@@ -2,9 +2,13 @@
     <transition name="fade">
         <div id="index">
             <div class="outLogin">
-                <Icon size="26" @click="$router.push({name:'login'})" type="md-arrow-back"/>
+                <transition name="fade">
+                <Icon v-show="isShowBack" size="26" @click="$router.push({name:'login'})" type="md-arrow-back"/>
+                </transition>
             </div>
-            欢迎
+            <div class="search-box">
+                
+            </div>
         </div>
     </transition>
 </template>
@@ -12,9 +16,47 @@
 
     export default {
         data() {
-            return {}
+            return {
+                isShowBack:false
+            }
         },
-        methods: {},
+        mounted(){
+            let _this = this
+            function showBack(event){
+                if(event.screenX <=80){
+                    _this.isShowBack = true
+                }else{
+                    _this.isShowBack = false
+                }
+            }
+            window.addEventListener('mousemove',(event)=>{
+                if(event.clientX <=80){
+                    _this.isShowBack = true
+                }else{
+                    _this.isShowBack = false
+                }
+            },true)
+
+        },
+        methods: {
+            throttle(func, delay){
+                let timer = null;
+                let startTime = Date.now();
+                return function(){
+                    let curTime = Date.now();
+                    let remaining = delay - (curTime - startTime);
+                    const context = this;
+                    const args = arguments;
+                    clearTimeout(timer);
+                    if(remaining <= 0){
+                        func.apply(context,args);
+                        startTime = Date.now();
+                    }else{
+                        timer = setTimeout(func, remaining);
+                    }
+                }
+            }
+        },
         watch: {
             '$route'() {
             }
@@ -38,7 +80,7 @@
     #index {
         height: 100%;
         width: 100%;
-        background-color: #fff;
+        background-color: rgba(255,255,255,.6);
         .outLogin {
             position: absolute;
             top: 50%;
@@ -48,7 +90,7 @@
                 border-radius: 50%;
                 transition: all .4s;
                 &:hover {
-                    background-color: #fff;
+                    background-color: #ccc;
                     transition: all .6s;
                     color: #ff9900;
                 }
