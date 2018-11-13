@@ -7,7 +7,7 @@
                 </transition>
             </div>
             <div class="search-box">
-                
+
             </div>
         </div>
     </transition>
@@ -22,13 +22,6 @@
         },
         mounted(){
             let _this = this
-            function showBack(event){
-                if(event.screenX <=80){
-                    _this.isShowBack = true
-                }else{
-                    _this.isShowBack = false
-                }
-            }
             window.addEventListener('mousemove',(event)=>{
                 if(event.clientX <=80){
                     _this.isShowBack = true
@@ -36,7 +29,21 @@
                     _this.isShowBack = false
                 }
             },true)
-
+            const asd =  function (){
+                n = -1
+                let arg = arguments.length > 0 ? arguments[0] :0
+                function t(){
+                    if(arg !==0){
+                        this.n++
+                    }else{
+                        n +=arg
+                    }
+                    console.log(n)
+                }
+                t()
+            }
+            asd()
+            asd()
         },
         methods: {
             throttle(func, delay){
