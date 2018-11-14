@@ -1,15 +1,5 @@
 <template>
     <div id="app" style="-webkit-app-region: no-drag">
-        <div v-show="$route.name==='login'" class="window-btn">
-            <span @mouseleave="curIndex = -1" @mouseenter="curIndex = 0">
-                <Icon @click="handleClick('min')" :class="{'handleHover':curIndex==0}" type="logo-windows" size="24"/>
-            </span>
-            <span @mouseleave="curIndex = -1" @mouseenter="curIndex = 1">
-            <Icon @click="handleClick('max')" :class="{'handleHover':curIndex == 1}" type="ios-wifi" size="24"/>
-                </span><span @mouseleave="curIndex = -1" @mouseenter="curIndex = 2">
-                <Icon @click="handleClick('close')" :class="{'handleHoverClose':curIndex == 2}" type="md-close" size="24"/>
-        </span>
-        </div>
         <keep-alive>
             <router-view></router-view>
         </keep-alive>
@@ -55,7 +45,9 @@
         width: 100%;
         min-height: 100%;
     }
-
+    li{
+        list-style-type: none;
+    }
     body {
         font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
         -webkit-user-select: none;
@@ -71,6 +63,11 @@
         background: url('./common/images/indexbgc.jpg') no-repeat;
         background-size: cover;
         overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
     }
 
     .window-btn {
