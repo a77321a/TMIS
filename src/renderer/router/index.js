@@ -18,18 +18,21 @@ export default new Router({
             path: '/index',
             name: 'index',
             component:()=> import('@/components/Home/index'),
-            children:[
-                {
-                    path: 'singer',
-                    name: 'singer',
-                    component:() => import('@/components/Singer/singer')
-                },
-                {
-                    path: 'recommend',
-                    name: 'recommend',
-                    component:() => import('@/components/Recommend/recommend')
-                },
-            ]
-        }
+        },
+        {
+            path: 'singer',
+            name: 'singer',
+            component:() => import('@/components/Singer/singer')
+        },
+        {
+            path: 'recommend',
+            name: 'recommend',
+            component:() => import('@/components/Recommend/recommend')
+        },
+        {
+            path: 'search',
+            name: 'search',
+            component:() => import('@/components/Search/search')
+        },
     ]
 })

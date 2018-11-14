@@ -67,7 +67,7 @@
                     </Col>
                 </Row>
                 <div class="search">
-                    <Icon title="搜索更多歌曲" color="rgba(255,255,255,.4)" size="26" type="ios-search" />
+                    <Icon @click="$router.push({name:'search'})"  title="搜索更多歌曲" color="rgba(255,255,255,.4)" size="26" type="ios-search" />
                 </div>
             </div>
         </div>

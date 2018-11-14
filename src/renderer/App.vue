@@ -1,5 +1,8 @@
 <template>
     <div id="app" style="-webkit-app-region: no-drag">
+        <div class="window-btn">
+            <Icon @click="$router.push({name:'login'})" type="logo-windows" size="24"/>
+        </div>
         <keep-alive>
             <router-view></router-view>
         </keep-alive>
